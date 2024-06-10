@@ -6,7 +6,7 @@ import { TypeormNamingStrategy } from '../src/common/utils';
 dotenv.config({ path: join(__dirname, `../.env`) });
 
 export default new DataSource({
-  type: 'mysql',
+  type: 'postgres',
   name: 'seed',
   host: process.env.DB_HOST,
   port: parseInt(`${process.env.DB_PORT}`, 10),
