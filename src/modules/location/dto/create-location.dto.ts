@@ -6,6 +6,7 @@ import {
   IsOptional,
   IsString,
   MaxLength,
+  Min,
 } from 'class-validator';
 import { AreaUnit } from '../../../domain/types';
 import { Nullable } from '../../../common/types';
@@ -36,6 +37,7 @@ export class CreateLocationDto {
 
   @IsNumber()
   @IsOptional()
+  @Min(1)
   parentLocationId: Nullable<number>;
 }
 
