@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+
+  mysql_db:
+    image: mysql:8
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: location_db
+      MYSQL_ROOT_PASSWORD: 123
+    ports:
+      - 3306:3306
+
+  location_api:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    env_file: .env.docker
+    restart: always
+    container_name: location_api
+    ports:
+      - "3001:3001"
+    links:
+     - "mysql_db"
